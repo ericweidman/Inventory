@@ -17,6 +17,7 @@ public class Inventory {
             System.out.println("2. Remove an item.");
             System.out.println("3. Update item amount.");
             System.out.println("4. View all items");
+            System.out.println("5. Stop editing inventory.");
 
             String option = scanner.nextLine();
 
@@ -47,16 +48,18 @@ public class Inventory {
                 int itemUpdate = Integer.valueOf(scanner.nextLine());
                 System.out.println("Change the value.");
                 int updatedAmount = Integer.valueOf(scanner.nextLine());
-                InventoryItems item = items.get(itemUpdate-1);
+                InventoryItems item = items.get(itemUpdate - 1);
                 item.amount = updatedAmount;
 
             } else if (option.equals("4")) {
                 int i = 1;
                 for (InventoryItems item : items) {
                     System.out.println(i + ". " + item.item + " " + "[" + item.amount + "]");
+                    System.out.println("");
                     i++;
                 }
-
+            } else if (option.equals("5")) {
+                System.exit(0);
             } else {
                 System.out.println("Invalid option!");
             }
