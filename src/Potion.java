@@ -6,6 +6,6 @@ public class Potion extends InventoryItems {
     public Potion(String item, int amount, String category) {
         this.item = item;
         this.amount = amount;
-        this.category = "Potions";
+        this.category = "Potion";
     }
 }
