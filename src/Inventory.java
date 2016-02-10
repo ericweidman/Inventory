@@ -60,7 +60,7 @@ public class Inventory {
             } else if (option.equals("4")) {
                 int i = 1;
                 for (InventoryItems item : items) {
-                    System.out.printf("%d . %s [%d]\n", i, item.item, item.amount);
+                    System.out.printf("%d . %s [%d] %s \n", i, item.item, item.amount, item.category);
                     i++;
                 }
             } else if (option.equals("5")) {
