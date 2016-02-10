@@ -9,6 +9,5 @@ public class InventoryItem {
     public InventoryItem() {
 
     }
-
 }
 
