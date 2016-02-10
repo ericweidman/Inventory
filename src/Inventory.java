@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Inventory {
 
     public static void main(String[] args) throws Exception {
-        ArrayList<InventoryItems> items = new ArrayList();
+        ArrayList<InventoryItem> items = new ArrayList();
         Scanner scanner = new Scanner(System.in);
 
 
@@ -31,7 +31,7 @@ public class Inventory {
                 System.out.println("Enter the item category.");
                 String cat = scanner.nextLine();
 
-                InventoryItems item = createItem(text, num, cat);
+                InventoryItem item = createItem(text, num, cat);
                 items.add(item);
 
             } else if (option.equals("2")) {
@@ -46,7 +46,7 @@ public class Inventory {
                 System.out.println("What amount would you like to update?");
                 System.out.println("Please enter a numbered option.");
                 int i = 1;
-                for (InventoryItems item : items) {
+                for (InventoryItem item : items) {
                     System.out.printf("%d . %s [%d]\n", i, item.item, item.amount);
                     i++;
                 }
@@ -54,12 +54,12 @@ public class Inventory {
                 int itemUpdate = Integer.valueOf(scanner.nextLine());
                 System.out.println("Change the value.");
                 int updatedAmount = Integer.valueOf(scanner.nextLine());
-                InventoryItems item = items.get(itemUpdate - 1);
+                InventoryItem item = items.get(itemUpdate - 1);
                 item.amount = updatedAmount;
 
             } else if (option.equals("4")) {
                 int i = 1;
-                for (InventoryItems item : items) {
+                for (InventoryItem item : items) {
                     System.out.printf("%d . %s [%d] %s \n", i, item.item, item.amount, item.category);
                     i++;
                 }
@@ -73,24 +73,23 @@ public class Inventory {
 
     }
 
-    public static InventoryItems createItem(String item, int amount, String category) throws Exception {
+    public static InventoryItem createItem(String item, int amount, String category) throws Exception {
 
         if (category.equalsIgnoreCase("Boot")) {
-            return new Boot(item, amount, category);
+            return new Boot(item, amount);
         } else if (category.equalsIgnoreCase("Armor")) {
-            return new Armor(item, amount,category);
+            return new Armor(item, amount);
         } else if (category.equalsIgnoreCase("Potion")) {
-            return new Potion(item, amount, category);
+            return new Potion(item, amount);
         } else if (category.equalsIgnoreCase("Shield")) {
-            return new Shield(item, amount, category);
+            return new Shield(item, amount);
         } else if (category.equalsIgnoreCase("Weapon")) {
-            return new Weapon(item, amount, category);
-            }
-            else{
-                throw new Exception("Invalid category!");
-            }
-
+            return new Weapon(item, amount);
+        } else {
+            throw new Exception("Invalid category!");
         }
+
     }
+}
 
 
